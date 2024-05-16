@@ -96,7 +96,7 @@ void loop() {
   pot_aparente = abs(voltage)*abs(current); // Se obtiene la potencia aparente - VA
   pot_reactiva = pot_aparente*sin(acos(pf)); // Se obtiene la potencia reactiva - VAr
 
-  // Check if the data is valid
+  // Se verifica si se pudo obtener todas las variables, en caso de que no, mostrará un error de lectura.
   if(isnan(voltage)){
       Serial.println("Error reading voltage");
   } else if (isnan(current)) {
@@ -112,7 +112,7 @@ void loop() {
   } 
   else {
 
-    // Se verifica si se pudo obtener todas las variables, en caso de que no, mostrará un error de lectura.
+    // Impresión de las variables
     Serial.print("Voltage: ");           Serial.print(voltage);             Serial.println("V");
     Serial.print("Current: ");           Serial.print(current);             Serial.println("A");
     Serial.print("Power: ");             Serial.print(power);               Serial.println("W");
